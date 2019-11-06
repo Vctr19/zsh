@@ -1,11 +1,11 @@
-# export ZSH path {
-export ZSH="/home/victor/.oh-my-zsh"
+# export oh-my-zsh path {
+export ZSH="${HOME}/.config/oh-my-zsh"
 # }
 
-# 
+# set prompt theme 
 ZSH_THEME="agnoster"
 
-# Plugins list {
+# plugins list {
 plugins=(
     git
     docker
@@ -15,16 +15,20 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# fzf load
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
+# zplugin load {
+source "$HOME/.config/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin installer's chunk
+# }
+
+# plugins {
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
+# }
 
 # User config {
 export EDITOR='nvim'
